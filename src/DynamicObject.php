@@ -47,6 +47,19 @@ trait DynamicObject
     }
 
     /**
+     * Removes an attribute
+     *
+     * @param $key
+     */
+    public function remove($key)
+    {
+        $key = $this->filterKey($key);
+        if ($this->has($key)) {
+            unset($this->data[$key]);
+        }
+    }
+
+    /**
      * Sets a dynamic property
      *
      * @param $key
@@ -93,6 +106,16 @@ trait DynamicObject
     }
 
     /**
+     * Removes an attribute
+     *
+     * @param $key
+     */
+    public function __unset($key)
+    {
+        return $this->remove($key);
+    }
+
+    /**
      * Dynamic methods handler
      *
      * @param $method
@@ -118,6 +141,28 @@ trait DynamicObject
     public function getAttributes()
     {
         return $this->data;
+    }
+
+    /**
+     * Replaces all dynamic attributes
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function setAttributes($data)
+    {
+        return $this->data = $data;
+    }
+
+    /**
+     * Merges an array of attributes
+     *
+     * @param $data
+     * @return array
+     */
+    public function mergeAttributes($data)
+    {
+        return $this->data = array_merge($this->data, $data);
     }
 
     /**
