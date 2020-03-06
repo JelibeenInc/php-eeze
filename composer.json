@@ -1,0 +1,20 @@
+{
+    "name": "jelibeeninc/eeze",
+    "description": "eeze is a dynamic getter and setter library",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "homepage": "https://jelibeen.com",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "David Tkachuk",
+            "email": "DavidRockin@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Jelibeen\\EEZE\\": "src/"
+        }
+    }
+}
