@@ -121,6 +121,28 @@ trait DynamicObject
     }
 
     /**
+     * Replaces all dynamic attributes
+     *
+     * @param $data
+     * @return mixed
+     */
+    public function setAttributes($data)
+    {
+        return $this->data = $data;
+    }
+
+    /**
+     * Merges an array of attributes
+     *
+     * @param $data
+     * @return array
+     */
+    public function mergeAttributes($data)
+    {
+        return $this->data = array_merge($this->data, $data);
+    }
+
+    /**
      * Filters a key for consistency
      *
      * @param $key
