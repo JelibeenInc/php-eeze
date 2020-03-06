@@ -47,6 +47,19 @@ trait DynamicObject
     }
 
     /**
+     * Removes an attribute
+     *
+     * @param $key
+     */
+    public function remove($key)
+    {
+        $key = $this->filterKey($key);
+        if ($this->has($key)) {
+            unset($this->data[$key]);
+        }
+    }
+
+    /**
      * Sets a dynamic property
      *
      * @param $key
@@ -90,6 +103,16 @@ trait DynamicObject
     public function __isset($key)
     {
         return $this->has($key);
+    }
+
+    /**
+     * Removes an attribute
+     *
+     * @param $key
+     */
+    public function __unset($key)
+    {
+        return $this->remove($key);
     }
 
     /**
